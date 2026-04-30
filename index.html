@@ -27,13 +27,12 @@ body{
   overflow-x:hidden;
 }
 
-/* CANVAS */
+/* BACKGROUND */
 #bg{
   position:fixed;
   top:0;left:0;
   width:100%;height:100%;
   z-index:0;
-  pointer-events:none;
 }
 
 /* HEADER */
@@ -42,7 +41,6 @@ header{
   z-index:2;
   padding:1.5rem 2rem;
   border-bottom:1px solid var(--line);
-  backdrop-filter:blur(10px);
 }
 .logo-wrap{
   display:flex;
@@ -51,16 +49,16 @@ header{
 }
 .logo-img{
   height:30px;
-  filter: drop-shadow(0 0 8px rgba(0,229,255,0.5));
+  filter: drop-shadow(0 0 10px rgba(0,229,255,0.5));
 }
 .logo-text{
   font-family:"Rajdhani";
-  font-weight:700;
   letter-spacing:4px;
   color:var(--cyan);
+  font-weight:700;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
   position:relative;
   z-index:2;
@@ -70,19 +68,12 @@ section{
   text-align:center;
 }
 
-/* HERO LOGO */
+/* HERO */
 .hero-logo{
   width:110px;
   margin-bottom:2rem;
-  filter: drop-shadow(0 0 30px rgba(0,229,255,0.4));
-  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 35px rgba(0,229,255,0.4));
 }
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-/* HERO */
 .hero h1{
   font-family:"Rajdhani";
   font-size:clamp(2.8rem,6vw,5rem);
@@ -114,20 +105,17 @@ section{
   padding:1.5rem;
   text-align:left;
   background:rgba(255,255,255,0.02);
-  transition:all 0.3s ease;
+  transition:0.3s;
 }
 .card:hover{
   border-color:var(--cyan);
   box-shadow:0 0 25px rgba(0,229,255,0.15);
-  transform:translateY(-4px);
 }
 .card h3{
   color:var(--cyan);
-  margin-bottom:0.5rem;
 }
 .card p{
   color:var(--muted);
-  font-size:0.95rem;
 }
 
 /* CTA */
@@ -140,11 +128,25 @@ section{
   letter-spacing:2px;
   display:inline-block;
   margin-top:1rem;
-  box-shadow:0 0 25px rgba(0,229,255,0.4);
-  transition:all 0.2s ease;
 }
-.cta a:hover{
-  box-shadow:0 0 45px rgba(0,229,255,0.7);
+
+/* SOCIAL */
+.social-section{
+  margin-top:3rem;
+}
+.social-row{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.social-row a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:0.8rem;
+}
+.social-row a:hover{
+  color:var(--cyan);
 }
 
 /* FOOTER */
@@ -164,13 +166,13 @@ footer{
 
 <header>
   <div class="logo-wrap">
-    <img src="logo.png" class="logo-img" alt="VYNETRIX"/>
+    <img src="logo.png" class="logo-img"/>
     <span class="logo-text">VYNETRIX</span>
   </div>
 </header>
 
 <section class="hero">
-  <img src="logo.png" alt="VYNETRIX" class="hero-logo"/>
+  <img src="logo.png" class="hero-logo"/>
 
   <h1>
     Complex Systems.
@@ -185,9 +187,9 @@ footer{
 <section>
   <h2>What We Simplify</h2>
   <div class="grid grid-3">
-    <div class="card"><h3>Software Systems</h3><p>Applications, integrations, and architectures simplified.</p></div>
-    <div class="card"><h3>Data Systems</h3><p>Data pipelines and intelligence layers structured clearly.</p></div>
-    <div class="card"><h3>Operations</h3><p>Workflows and processes streamlined into systems.</p></div>
+    <div class="card"><h3>Software Systems</h3><p>Applications and architectures simplified.</p></div>
+    <div class="card"><h3>Data Systems</h3><p>Data pipelines structured clearly.</p></div>
+    <div class="card"><h3>Operations</h3><p>Workflows streamlined into systems.</p></div>
   </div>
 </section>
 
@@ -204,6 +206,15 @@ footer{
   <h2>Start a Conversation</h2>
   <p class="sub">Tell us what you're dealing with — we’ll help simplify it.</p>
   <a href="mailto:support@vynetrix.in">Contact VYNETRIX</a>
+
+  <div class="social-section">
+    <div class="social-row">
+      <a href="https://instagram.com/vynetrixhq" target="_blank">Instagram</a>
+      <a href="https://threads.net/@vynetrixhq" target="_blank">Threads</a>
+      <a href="https://x.com/vynetrixhq" target="_blank">X</a>
+      <a href="https://youtube.com/@vynetrixhq" target="_blank">YouTube</a>
+    </div>
+  </div>
 </section>
 
 <footer>
