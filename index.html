@@ -17,7 +17,6 @@
   --muted:#6b8cac;
   --line:rgba(255,255,255,0.06);
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -45,7 +44,16 @@ header{
   border-bottom:1px solid var(--line);
   backdrop-filter:blur(10px);
 }
-.logo{
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo-img{
+  height:30px;
+  filter: drop-shadow(0 0 8px rgba(0,229,255,0.5));
+}
+.logo-text{
   font-family:"Rajdhani";
   font-weight:700;
   letter-spacing:4px;
@@ -60,6 +68,18 @@ section{
   max-width:1000px;
   margin:auto;
   text-align:center;
+}
+
+/* HERO LOGO */
+.hero-logo{
+  width:110px;
+  margin-bottom:2rem;
+  filter: drop-shadow(0 0 30px rgba(0,229,255,0.4));
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
 }
 
 /* HERO */
@@ -143,14 +163,20 @@ footer{
 <canvas id="bg"></canvas>
 
 <header>
-  <div class="logo">VYNETRIX</div>
+  <div class="logo-wrap">
+    <img src="logo.png" class="logo-img" alt="VYNETRIX"/>
+    <span class="logo-text">VYNETRIX</span>
+  </div>
 </header>
 
 <section class="hero">
+  <img src="logo.png" alt="VYNETRIX" class="hero-logo"/>
+
   <h1>
     Complex Systems.
     <span class="highlight">Simplified.</span>
   </h1>
+
   <p class="sub">
     We design and build intelligent systems that transform complexity into clear, scalable structures.
   </p>
@@ -185,13 +211,13 @@ footer{
 </footer>
 
 <script>
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-let W, H, pts=[];
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+let W,H,pts=[];
 
 function resize(){
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
+  W=canvas.width=window.innerWidth;
+  H=canvas.height=window.innerHeight;
 }
 
 class Pt{
@@ -240,8 +266,8 @@ function loop(){
 window.addEventListener("resize",resize);
 resize();
 
-let count = window.innerWidth < 768 ? 50 : 90;
-pts = Array.from({length:count},()=>new Pt());
+let count=window.innerWidth<768?50:90;
+pts=Array.from({length:count},()=>new Pt());
 
 loop();
 </script>
