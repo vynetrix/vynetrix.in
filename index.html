@@ -15,8 +15,9 @@
   --cyan:#00e5ff;
   --text:#e6f1ff;
   --muted:#6b8cac;
-  --line:rgba(255,255,255,0.06);
+  --line:rgba(255,255,255,0.05);
 }
+
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -39,80 +40,74 @@ body{
 header{
   position:relative;
   z-index:2;
-  padding:1.5rem 2rem;
+  padding:1.4rem 2rem;
   border-bottom:1px solid var(--line);
 }
 .logo-wrap{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
 }
 .logo-img{
-  height:30px;
-  filter: drop-shadow(0 0 10px rgba(0,229,255,0.5));
+  height:28px;
+  opacity:0.9;
 }
 .logo-text{
   font-family:"Rajdhani";
   letter-spacing:4px;
   color:var(--cyan);
-  font-weight:700;
+  font-weight:600;
 }
 
 /* SECTION */
 section{
   position:relative;
   z-index:2;
-  padding:5rem 2rem;
-  max-width:1000px;
+  padding:4.5rem 2rem;
+  max-width:900px;
   margin:auto;
   text-align:center;
 }
 
 /* HERO */
 .hero-logo{
-  width:110px;
-  margin-bottom:2rem;
-  filter: drop-shadow(0 0 35px rgba(0,229,255,0.4));
+  width:90px;
+  margin-bottom:1.8rem;
+  opacity:0.85;
 }
 .hero h1{
   font-family:"Rajdhani";
-  font-size:clamp(2.8rem,6vw,5rem);
+  font-size:clamp(2.6rem,6vw,4.5rem);
 }
 .highlight{
   color:var(--cyan);
-  display:block;
-  text-shadow:0 0 40px rgba(0,229,255,0.5);
 }
 .sub{
   max-width:520px;
-  margin:2rem auto;
+  margin:1.5rem auto;
   color:var(--muted);
 }
 
 /* GRID */
 .grid{
   display:grid;
-  gap:2rem;
+  gap:1.8rem;
   margin-top:2rem;
 }
 .grid-3{
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 }
 
 /* CARD */
 .card{
   border:1px solid var(--line);
-  padding:1.5rem;
+  padding:1.4rem;
   text-align:left;
-  background:rgba(255,255,255,0.02);
-  transition:0.3s;
-}
-.card:hover{
-  border-color:var(--cyan);
-  box-shadow:0 0 25px rgba(0,229,255,0.15);
+  background:rgba(255,255,255,0.01);
 }
 .card h3{
   color:var(--cyan);
+  margin-bottom:0.3rem;
 }
 .card p{
   color:var(--muted);
@@ -122,30 +117,25 @@ section{
 .cta a{
   background:var(--cyan);
   color:#000;
-  padding:1rem 2.5rem;
+  padding:0.9rem 2.3rem;
   text-decoration:none;
   font-weight:600;
-  letter-spacing:2px;
+  letter-spacing:1.5px;
   display:inline-block;
   margin-top:1rem;
 }
 
 /* SOCIAL */
-.social-section{
-  margin-top:3rem;
-}
-.social-row{
-  display:flex;
-  justify-content:center;
-  gap:1.5rem;
-  flex-wrap:wrap;
-}
-.social-row a{
-  color:var(--muted);
-  text-decoration:none;
+.social{
+  margin-top:2rem;
   font-size:0.8rem;
 }
-.social-row a:hover{
+.social a{
+  margin:0 10px;
+  color:var(--muted);
+  text-decoration:none;
+}
+.social a:hover{
   color:var(--cyan);
 }
 
@@ -154,7 +144,7 @@ footer{
   border-top:1px solid var(--line);
   padding:2rem;
   text-align:center;
-  font-size:0.75rem;
+  font-size:0.7rem;
   color:var(--muted);
 }
 </style>
@@ -175,7 +165,7 @@ footer{
   <img src="logo.png" class="hero-logo"/>
 
   <h1>
-    Complex Systems.
+    Complex Systems.<br>
     <span class="highlight">Simplified.</span>
   </h1>
 
@@ -207,13 +197,11 @@ footer{
   <p class="sub">Tell us what you're dealing with — we’ll help simplify it.</p>
   <a href="mailto:support@vynetrix.in">Contact VYNETRIX</a>
 
-  <div class="social-section">
-    <div class="social-row">
-      <a href="https://instagram.com/vynetrixhq" target="_blank">Instagram</a>
-      <a href="https://threads.net/@vynetrixhq" target="_blank">Threads</a>
-      <a href="https://x.com/vynetrixhq" target="_blank">X</a>
-      <a href="https://youtube.com/@vynetrixhq" target="_blank">YouTube</a>
-    </div>
+  <div class="social">
+    <a href="https://instagram.com/vynetrixhq">Instagram</a>
+    <a href="https://threads.net/@vynetrixhq">Threads</a>
+    <a href="https://x.com/vynetrixhq">X</a>
+    <a href="https://youtube.com/@vynetrixhq">YouTube</a>
   </div>
 </section>
 
@@ -236,8 +224,8 @@ class Pt{
   init(){
     this.x=Math.random()*W;
     this.y=Math.random()*H;
-    this.vx=(Math.random()-0.5)*0.2;
-    this.vy=(Math.random()-0.5)*0.2;
+    this.vx=(Math.random()-0.5)*0.15;
+    this.vy=(Math.random()-0.5)*0.15;
   }
   move(){
     this.x+=this.vx;
@@ -245,8 +233,8 @@ class Pt{
     if(this.x<0||this.x>W||this.y<0||this.y>H)this.init();
   }
   draw(){
-    ctx.fillStyle="rgba(0,229,255,0.5)";
-    ctx.fillRect(this.x,this.y,1.5,1.5);
+    ctx.fillStyle="rgba(0,229,255,0.2)";
+    ctx.fillRect(this.x,this.y,1.2,1.2);
   }
 }
 
@@ -257,7 +245,7 @@ function connect(){
       let dy=pts[i].y-pts[j].y;
       let d=Math.sqrt(dx*dx+dy*dy);
       if(d<100){
-        ctx.strokeStyle="rgba(0,229,255,"+(1-d/100)*0.1+")";
+        ctx.strokeStyle="rgba(0,229,255,"+(1-d/100)*0.04+")";
         ctx.beginPath();
         ctx.moveTo(pts[i].x,pts[i].y);
         ctx.lineTo(pts[j].x,pts[j].y);
@@ -277,7 +265,7 @@ function loop(){
 window.addEventListener("resize",resize);
 resize();
 
-let count=window.innerWidth<768?50:90;
+let count=window.innerWidth<768?40:70;
 pts=Array.from({length:count},()=>new Pt());
 
 loop();
